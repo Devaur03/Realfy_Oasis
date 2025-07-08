@@ -17,7 +17,9 @@ import logging
 
 # Initialize Flask application with CORS support
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Resource Sharing for all routes
+CORS(app, resources={
+    r"/analyze": {"origins": ["https://realfy-oasis.vercel.app/"]}
+})  # Enable Cross-Origin Resource Sharing for all routes
 
 # Configure logging for better debugging and monitoring
 logging.basicConfig(
